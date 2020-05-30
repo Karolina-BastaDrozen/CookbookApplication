@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredients</title>
+</head>
+<body>
+
+<ul class="lead">
+    <h3 class="lead-3">Składniki:</h3>
+    <li th:each="ingredient: ${recipe.ingredients}">
+        <a th:text="|${ingredient.name} - ${ingredient.value} ${ingredient.unit}|"></a>
+        <a th:href="|/ingredient/${ingredient.id}/delete|" class="lead">Usuń składnik</a>
+<!--        <a th:href="|/recipe/${recipe.id}/delete|" class="lead">Usuń przepis</a>-->
+    </li><br/>
+    <a class="list-group-item list-group-item-action" href="/addIngredient">Dodaj inny składnik</a><br/>
+</ul>
+
+</body>
+</html>

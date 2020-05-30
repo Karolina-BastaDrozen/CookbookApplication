@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add ingredients</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #579ed1;">
+    <a class="navbar-brand" href="/">Strona główna</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" th:href="'/recipes'">Wszystkie przepisy<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" th:href="'/categories'">Wszystkie kategorie</a>
+            <a class="nav-item nav-link active" th:href="'/addRecipe'">Dodaj przepis</a>
+        </div>
+    </div>
+</nav><br/>
+
+<form method="post" th:object="${ingredient}" th:action="@{/addIngredient}"  class="col-7 mx-auto mb-5">
+    <div >
+        <div>
+            <label for="recipe">Wybierz przepis, do którego chcesz dodać składniki</label>
+            <select class="form-control" th:field="*{recipe}" id="recipe">
+                <option th:each="recipe: ${recipes}" th:text="${recipe.name}" th:value="${recipe.id}"></option>
+            </select>
+        </div>
+        <div>
+            <label for="ingredient" class="col-sm-2 col-form-label col-form-label-sm">Składnik</label>
+            <input type="text" class="form-control" th:field="*{name}" placeholder="Nazwa składnika" id="ingredient"/>
+        </div>
+        <div>
+            <label for="value">Wartość</label>
+            <input type="number" class="form-control" th:field="*{value}" placeholder="Wartość" id="value"/>
+        </div>
+        <div>
+            <label for="unit">Jednostka</label>
+            <select id="unit" class="form-control" th:field="*{unit}">
+                <option disabled selected value="">Wybierz jednostkę...</option>
+                <option value="G">gram</option>
+                <option value="MG">miligram</option>
+                <option value="KG">kilogram</option>
+                <option value="ML">mililitr</option>
+                <option value="L">litr</option>
+                <option value="SZT">sztuka</option>
+            </select>
+        </div>
+        <input  type="submit" value="Dodaj!" />
+    </div>
+
+
+</form>
+
+</body>
+</html>

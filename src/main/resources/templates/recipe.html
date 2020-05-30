@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<!--    <script src="/main.js"></script>-->
+<!--    <link href="style.css" rel="stylesheet">-->
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #579ed1;">
+    <a class="navbar-brand" href="/">Strona główna</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" th:href="'/recipes'">Wszystkie przepisy<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" th:href="'/categories'">Wszystkie kategorie</a>
+            <a class="nav-item nav-link active" th:href="'/addRecipe'">Dodaj przepis</a>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron home-jumbo">
+    <div class="container text-center">
+        <h1 class="display-4" th:text="${recipe.name}"></h1>
+        <h4 class="lead" th:text="|Kategoria: ${recipe.category.name}|"></h4>
+        <h5 class="lead" th:text="|Czas przygotowania: ${recipe.preparationTime} minut|"></h5>
+        <h5 class="lead" th:text="|Ilość porcji: ${recipe.portions}|"></h5>
+        <h5 class="lead" th:text="|${recipe.difficultyLevel}|"></h5>
+        <h5 class="lead" th:text="|Ilość polubień: ${recipe.likesCounter}|"></h5><br/>
+    </div>
+</div>
+
+    <ul class="lead-3">
+        <h3 class="lead-3">Składniki:</h3>
+        <li th:each="ingredient: ${recipe.ingredients}">
+            <a th:text="|${ingredient.name} - ${ingredient.value} ${ingredient.unit}|"></a>
+        </li><br/>
+        <h3 class="lead-3">Opis przygotowania</h3>
+        <a th:utext="${recipe.description}"></a><br/>
+    </ul><br/>
+
+    <a th:href="|/recipe/${recipe.id}/delete|" class="lead">Usuń przepis</a><br/>
+
+    <a th:href="@{|/edit?id=${recipe.id}|}">Edytuj przepis</a><br/>
+<!--    <a th:href="@{|/editIngredient?id=${recipe.id}|}">Edytuj składniki</a><br/>-->
+
+
+
+<a th:href="@{/likeIt}">Polubienie</a>
+
+<!--    //<a th:href="|/recipe/${recipe.id}/likeIt|" th:object="${likedRecipe}">Lubię to</a>-->
+
+<form>
+        <button type="button" class="btn btn-success" th:object="${recipe}" th:onclick="${like}">Lubię to!</button>
+    </form>
+
+<a th:href="@{|/likeIt?id=${recipe.id}|}">Lubię to</a>
+
+<div class="votebar">
+    <button class="click-like up" aria-pressed="false" title="like"><i class="vote-arrow"></i>
+        <span class="count"><span th:text="${recipe.likesCounter}"></span></span>
+    </button>
+    <button class="click-dislike down" aria-pressed="true" title="dislike"><i class="vote-arrow"></i>
+    </button>
+</div>
+
+
+
+<!--    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>-->
+<!--    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>-->
+
+<!--    <a th:href="/edit">Edytuj przepis</a> przeniesienie do addRecipe-->
+
+</body>
+</html>

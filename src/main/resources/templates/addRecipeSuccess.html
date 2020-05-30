@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body >
+<!--th:object="${recipe}"-->
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #579ed1;">
+    <a class="navbar-brand" href="/">Strona główna</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" th:href="'/recipes'">Wszystkie przepisy<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" th:href="'/categories'">Wszystkie kategorie</a>
+            <a class="nav-item nav-link active" th:href="'/addRecipe'">Dodaj przepis</a>
+        </div>
+    </div>
+</nav>
+
+<h3>Pomyślnie dodano przepis!</h3>
+
+<!--<a class="list-group-item list-group-item-action" th:href="'/addRecipe/' + ${recipe.id} + '/addIngredient'">Dodaj składniki</a><br/>-->
+<a class="list-group-item list-group-item-action" href="/addIngredient">Dodaj składniki</a><br/>
+
+</body>
+</html>
