@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="fragments :: head">
     <meta charset="UTF-8">
     <title>Edit recipe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h1 class="col-5 mx-auto">Wprowadź nowe parametry przepisu</h1>
+<div th:replace="fragments :: header"></div>
+
+<h1 class="col-5 mx-auto">Wprowadź nowe dane przepisu</h1>
 <div class="container container-main">
     <form method="post"  th:action="@{/edit}" th:object="${recipe}" class="col-6 mx-auto mb-5">
-        <div class="form-group">
-            <label for="id">ID</label>
-            <input type="text" id="id" th:field="*{id}" readonly/>
-        </div>
+        <input type="hidden" th:field="*{id}" readonly/>
         <div class="form-group">
             <label for="recipeName">Tytuł przepisu</label>
             <input type="text" class="form-control" id="recipeName" th:field="*{name}" placeholder="Tytuł przepisu"/><br/>
@@ -51,6 +50,5 @@
         <input type="submit" value="Edytuj!" />
     </form>
 </div>
-
 </body>
 </html>

@@ -1,12 +1,30 @@
 INSERT INTO category (id, name, description, image) VALUES
-(1, 'Przekąski', 'Coś na ząb przed daniem głównym lub w sam raz na małą imprezę ze znajomymi', '/przystawki.jpg'),
-(2, 'Sałatki', 'Zdrowe i pyszne. Zdadzą egzamin zarówno jako dodatek do innego dania, jak i danie główne na mniejszy głód.', '/salatka-gyros.jpg'),
-(3, 'Zupy', 'Rozgrzewające, płynne danie', '/zupy.jpg'),
-(4, 'Danie główne', 'Dla głodomorów', '/danie główne.jpg'),
-(5, 'Desery', 'Ciasta, babeczki i torty. Każdy miłośnik słodkości znajdzie tu coś dla siebie', '/desery.jpg'),
-(6, 'Koktajle', 'Zmiksowane owoce z mlekiem, kefirem lub jogurtem - to zdrowy sposób na ochłodę latem.', '/koktajle.jpg'),
-(7, 'Przetwory', 'Lato i jesień to najlepszy czas na zrobienie domowych przetworów i zapasów na zimę.', '/kiszonki.webp'),
-(8, 'Nalewki', 'Podczas produkcji domowych nalewek alkohol wyodrębnia i prawie w całości wydobywa aktywne substancje zawarte w ziołach i owocach, a także znakomicie je konserwuje. Ważna jest jego moc.', '/nalewki.jpg');
+(1, 'Przekąski', 'Przekąski i przystawki to potrawy, które nie są traktowane jako pełne danie, a raczej podawane ' ||
+ 'przed głównymi posiłkami lub jako małe dania, które zaspokaja głód pomiędzy śniadaniem, obiadem czy kolacją.', '/przystawki.jpg'),
+(2, 'Sałatki', 'Potrawy sporządzane głównie ze świeżych warzyw, często z dodatkiem innych składników, także poddanych ' ||
+ 'uprzednio obróbce cieplnej, oraz przypraw, z dodatkiem sosu na bazie majonezu, oliwy, śmietany czy specjalnych sosów (dressingów). ' ||
+ 'Zdadzą egzamin zarówno jako dodatek do innego dania, jak i danie główne na mniejszy głód.', '/salatka-gyros.jpg'),
+(3, 'Zupy', 'Płynne lub półpłynne potrawy mające zazwyczaj postać wywaru powstającego podczas gotowania różnorodnych składników. ' ||
+ 'W tradycji polskiej zupa jest zwykle pierwszym daniem obiadu. Podczas gotowania warzyw, owoców, mięs i kości uwalnia się znaczna ' ||
+  'ilość zawartych w nich składników. Bez takiego przygotowania niektóre z nich nie zostałyby wchłonięte przez układ pokarmowy człowieka' ||
+   ' i dlatego zupy są daniem bogatym w niezbędne składniki. Przygotowanie zup zazwyczaj wymaga użycia żaroodpornego naczynia. Zwykle jest ' ||
+    'to garnek lub kociołek umieszczony nad ogniem lub grzejnikiem elektrycznym. ', '/zupy.jpg'),
+(4, 'Danie główne', 'Danie główne to posiłek sycący, spożywany o określonych porach dnia - śniadanie, obiad (lunch)' ||
+ ' i kolacja czy obiadokolacja. Różnorodność dań, sposobu przyrządzania, użytych składników jest ogromna. Bogactwo kuchni' ||
+  ' z różnych krajów i kontynentów, jak również tradycje ich przyrządzania są materiałem tysięcy książek kulinarnych.', '/danie główne.jpg'),
+(5, 'Desery', 'Wyraz pochodzi od francuskiego desservir, czyli „sprzątać ze stołu". Słodka potrawa podawana jako osobne ' ||
+ 'słodkie danie na koniec posiłku (obiadu, kolacji lub przyjęcia), ale także na podwieczorek albo podczas niezobowiązującego ' ||
+  'spotkania o dowolnej porze dnia.', '/desery.jpg'),
+(6, 'Koktajle', 'Kolorowe koktajle owocowo-warzywne to zastrzyk witamin i elementów odżywczych. Polecane zwłaszcza na rozpoczęcie dnia, ' ||
+ 'bo pobudzają lepiej niż poranna kawa, sycą na długo i natychmiast poprawiają nastrój.', '/koktajle.jpg'),
+(7, 'Przetwory', 'Proste półprodukty wykonane z jednego lub kombinacji kilku składników, których celem jest możliwość ich ' ||
+ 'długiego przechowywania i używania jako składnika w daniach bardziej wyszukanych. Przykładami przetworów owocowych są:' ||
+  ' dżemy, powidła, owoce w zalewie, przetworów z nabiału: sery w zalewie, oliwie, przetwory warzywne to weki, przeciery, ' ||
+   'kiszone warzywa, marynaty, jak również przetwory mięsne: konserwy, pasztety. Lato i jesień to najlepszy czas na zrobienie domowych przetworów i zapasów na zimę.', '/kiszonki.webp'),
+(8, 'Nalewki', 'Alkoholowe wyciągi z owoców, korzeni, kwiatów lub ziół (bądź mieszaniny składników), zazwyczaj o 40-45 % zawartości alkoholu. ' ||
+ 'Sporządzane są w procesie maceracji, czyli przez zalanie składników alkoholem w celu wydobycia i utrwalenia smaku i aromatu ' ||
+  'zawartego we wsadzie (maceracie). Podczas produkcji domowych nalewek alkohol wyodrębnia i prawie w całości wydobywa aktywne ' ||
+   'substancje zawarte w ziołach i owocach, a także znakomicie je konserwuje.', '/nalewki.jpg');
 
 INSERT INTO recipe (id, name, description, preparation_time, portions, difficulty_level, likes_counter, category_id) VALUES
 (1, 'Zupa z soczewicy', (CONCAT_WS(CHAR(10),

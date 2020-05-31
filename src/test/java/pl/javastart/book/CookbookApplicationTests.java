@@ -1,4 +1,4 @@
-package pl.javastart.ksiazka;
+package pl.javastart.book;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

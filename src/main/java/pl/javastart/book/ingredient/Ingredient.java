@@ -1,6 +1,6 @@
-package pl.javastart.ksiazka.ingredient;
+package pl.javastart.book.ingredient;
 
-import pl.javastart.ksiazka.przepis.Recipe;
+import pl.javastart.book.recipe.Recipe;
 
 import javax.persistence.*;
 

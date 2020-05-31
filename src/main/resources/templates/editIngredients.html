@@ -1,40 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="fragments :: head">
     <meta charset="UTF-8">
     <title>Edit ingredients</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
+<div th:replace="fragments :: header"></div>
 <form method="post" th:action="@{/editIngredient}" class="col-6 mx-auto mb-5">
-    <div class="form-group">
-        <label for="category">Składnik</label>
-        <select class="form-control" id="category">
-            <option th:each="ingredient: ${ingredients}" th:text="${ingredient.name}" th:value="${ingredient.id}">
 
-            </option>
-            <div th:object="">
-                <label for="value">Wartość</label>
-                <input type="number" class="form-control" th:field="*{ingredient.value}" placeholder="Wartość" id="value"/>
-            </div>
-            <div>
-                <label for="unit">Jednostka</label>
-                <select id="unit" class="form-control" th:field="*{ingredient.unit}">
-                    <option disabled selected value="">Wybierz jednostkę...</option>
-                    <option value="G">gram</option>
-                    <option value="MG">miligram</option>
-                    <option value="KG">kilogram</option>
-                    <option value="ML">mililitr</option>
-                    <option value="L">litr</option>
-                    <option value="SZT">sztuka</option>
-                </select>
-            </div>
-        </select>
-    </div>
-    <input type="submit" value="Edytuj!" />
+        <div th:each="ingredient : ${ingredients}">
+            <input type="hidden" class="form-control" th:value="${ingredient.id}" readonly>
+            Nazwa: <input type="text" class="form-control" th:value="*{ingredient.name}">
+            Wartość: <input type="text" class="form-control" th:value="*{ingredient.value}">
+            Jednostka:
+            <select class="form-control" th:value="*{ingredient.unit}" >
+                <option disabled selected value="">Wybierz jednostkę...</option>
+                <option value="G">gram</option>
+                <option value="MG">miligram</option>
+                <option value="KG">kilogram</option>
+                <option value="ML">mililitr</option>
+                <option value="L">litr</option>
+                <option value="SZT">sztuka</option>
+            </select><br/>
+        </div>
+    <input type="submit" value="Edytuj!">
 </form>
-
 </body>
 </html>

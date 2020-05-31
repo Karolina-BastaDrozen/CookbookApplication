@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
+<div th:replace="fragments :: header"></div>
 
 <h1>Błąd!</h1><br/>
 <p>Coś poszło nie tak.</p><br/>
 <a href="/">Powrót na stronę główną</a>
-
 </body>
 </html>

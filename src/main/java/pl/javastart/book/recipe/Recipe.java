@@ -1,7 +1,7 @@
-package pl.javastart.ksiazka.przepis;
+package pl.javastart.book.recipe;
 
-import pl.javastart.ksiazka.ingredient.Ingredient;
-import pl.javastart.ksiazka.category.Category;
+import pl.javastart.book.ingredient.Ingredient;
+import pl.javastart.book.category.Category;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -115,17 +115,9 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return "Recipe{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", preparationTime=" + preparationTime +
-                ", portions=" + portions +
-                ", difficultyLevel=" + difficultyLevel +
-                ", likesCounter=" + likesCounter +
-                ", ingredients=" + ingredients +
-                ", category=" + category +
-                '}';
+        return String.format("Przepis nr %d, nazwa: %s, opis: %s, czas przygotowania: %d, ilość porcji: %d, " +
+                "poziom trudności %s, polubienia: %d, kategoria: %s, składniki: %s", id, name, description,
+                preparationTime, portions, difficultyLevel, likesCounter, ingredients, category);
     }
 
     @Override

@@ -1,9 +1,8 @@
-package pl.javastart.ksiazka.category;
+package pl.javastart.book.category;
 
-import pl.javastart.ksiazka.przepis.Recipe;
+import pl.javastart.book.recipe.Recipe;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,6 +13,8 @@ public class Category {
     private Long id;
 
     private String name;
+
+    @Column(length = 1000)
     private String description;
     private String image;
 

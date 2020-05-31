@@ -1,4 +1,4 @@
-package pl.javastart.ksiazka.category;
+package pl.javastart.book.category;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
