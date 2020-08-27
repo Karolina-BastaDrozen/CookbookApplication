@@ -21,6 +21,9 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private Set<Recipe> recipes;
 
+    public Category() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -59,8 +62,5 @@ public class Category {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public Category() {
     }
 }

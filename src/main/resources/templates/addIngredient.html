@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments :: head">
+<head th:include="navbar :: head">
     <meta charset="UTF-8">
     <title>Add ingredients</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div th:replace="fragments :: header"></div>
+<div th:replace="navbar :: header"></div>
 <div class="content">
 <form method="post" th:object="${ingredient}" th:action="@{/addIngredient}"  class="col-7 mx-auto mb-5">
     <div >

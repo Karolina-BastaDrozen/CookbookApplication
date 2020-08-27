@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
-    List<Ingredient> findAllByRecipeId (Long id);
+    List<Ingredient> findByRecipeId(Long id);
 
     @Transactional
     @Modifying(flushAutomatically = true, clearAutomatically = true)

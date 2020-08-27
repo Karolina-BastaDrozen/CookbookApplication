@@ -16,6 +16,6 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model){
         model.addAttribute("theBest", recipeRepository.findTop3ByOrderByLikesCounterDesc());
-        return "home";
+        return "index";
     }
 }

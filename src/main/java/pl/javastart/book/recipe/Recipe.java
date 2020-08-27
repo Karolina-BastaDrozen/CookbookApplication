@@ -38,6 +38,9 @@ public class Recipe {
     @ManyToOne
     private Category category;
 
+    public Recipe() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -110,9 +113,6 @@ public class Recipe {
         this.category = category;
     }
 
-    public Recipe() {
-    }
-
     @Override
     public String toString() {
         return String.format("Przepis nr %d, nazwa: %s, opis: %s, czas przygotowania: %d, ilość porcji: %d, " +
@@ -139,5 +139,13 @@ public class Recipe {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, description, preparationTime, portions, difficultyLevel, likesCounter, ingredients, category);
+    }
+
+    public void likeIt() {
+        this.likesCounter++;
+    }
+
+    public void dislikeIt() {
+        this.likesCounter--;
     }
 }

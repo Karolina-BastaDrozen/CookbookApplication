@@ -43,14 +43,14 @@ public class IngredientController {
 
     @GetMapping("/editIngredient")
     public String editIngredient(Model model, @RequestParam Long id){
-        List<Ingredient> allByRecipeId = ingredientRepository.findAllByRecipeId(id);
+        List<Ingredient> allByRecipeId = ingredientRepository.findByRecipeId(id);
         model.addAttribute("ingredients", allByRecipeId);
         return "editIngredients";
     }
 
     @PostMapping("/editIngredient")
     public String editedIngredient(List <Ingredient> ingredientsFromForm, Long recipeId) {
-        List<Ingredient> allByRecipeId = ingredientRepository.findAllByRecipeId(recipeId);
+        List<Ingredient> allByRecipeId = ingredientRepository.findByRecipeId(recipeId);
 
         for (int i = 0; i < allByRecipeId.size(); i++) {
             Ingredient ingredientFromForm = ingredientsFromForm.get(i);

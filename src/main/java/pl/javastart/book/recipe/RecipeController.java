@@ -97,24 +97,22 @@ public class RecipeController {
     }
 
     @GetMapping ("/likeIt")
-    public String likeIt(Model model, @RequestParam Long id, Recipe recipe) {
+    public String likeIt(Model model, @RequestParam Long id) {
 
         Recipe recipeById = recipeRepository.findAllById(id);
+        recipeById.likeIt();
+        recipeRepository.save(recipeById);
         model.addAttribute("recipe", recipeById);
-        int likeIt = recipeRepository.likeIt(recipe.getId(), recipe.getLikesCounter());
-        recipe.setLikesCounter(likeIt);
-        model.addAttribute("like", recipeRepository.likeIt(id, recipeById.getLikesCounter()));
         return "redirect:/recipe/" + id;
     }
 
     @GetMapping ("/dislikeIt")
-    public String disLikeIt(Model model, @RequestParam Long id, Recipe recipe) {
+    public String disLikeIt(Model model, @RequestParam Long id) {
 
         Recipe recipeById = recipeRepository.findAllById(id);
+        recipeById.dislikeIt();
+        recipeRepository.save(recipeById);
         model.addAttribute("recipe", recipeById);
-        int dislikeIt = recipeRepository.dislikeIt(recipe.getId(), recipe.getLikesCounter());
-        recipe.setLikesCounter(dislikeIt);
-        model.addAttribute("dislike", recipeRepository.dislikeIt(id, recipeById.getLikesCounter()));
         return "redirect:/recipe/" + id;
     }
 }
